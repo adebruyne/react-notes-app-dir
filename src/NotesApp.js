@@ -9,7 +9,7 @@ class NotesApp extends Component {
   }
   render() {
     return (
-      <div className="notes-app">
+      <div className="notes-app container">
         <SearchBar />
         <NoteList />
         <EditorWindow />

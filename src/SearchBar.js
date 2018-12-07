@@ -2,13 +2,15 @@ import React from "react";
 
 function SearchBar(props) {
   return (
-    <div className="searchbar">
-      <input
-        value="it"
-        type="text
-        "
-      />
-    </div>
+    <form>
+      <div class="form-group searchbar">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="search for something"
+        />
+      </div>
+    </form>
   );
 }
 

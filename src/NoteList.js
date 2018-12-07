@@ -3,15 +3,15 @@ import React from "react";
 function NoteList(props) {
   return (
     <div>
-      <div className="notes-list">
-        <ul>
-          <li>
+      <div>
+        <ul className="notes-list list-group ">
+          <li className="list-group-item">
             <a href="">note 1</a>
           </li>
-          <li>
+          <li className="list-group-item">
             <a href="">note 2</a>
           </li>
-          <li>
+          <li className="list-group-item">
             <a href="">note 3</a>
           </li>
         </ul>
