@@ -11,7 +11,7 @@ class NotesApp extends Component {
     return (
       <div className="notes-app container">
         <SearchBar />
-        <NoteList />
+        <NoteList notes={["note 1", "note 2", "note 3", "note 4"]} />
         <EditorWindow />
       </div>
     );
