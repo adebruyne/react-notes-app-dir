@@ -6,7 +6,7 @@ function EditorWindow(props) {
       <br />
       <textarea
         className="form-control editor-window"
-        value="it was the best of times"
+        value={props.content}
         rows="3"
       />
     </div>
