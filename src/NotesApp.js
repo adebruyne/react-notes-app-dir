@@ -7,7 +7,7 @@ class NotesApp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: "",
+      searchTerm: " ",
       currentNoteId: 1002,
       notes: [
         {
@@ -32,11 +32,11 @@ class NotesApp extends Component {
     return (
       <div className="notes-app container">
         <SearchBar
-          handleInput={this._getSearchTerm}
           searchTerm={this.state.searchTerm}
+          handleInput={this._getSearchTerm}
         />
         <NoteList
-          notes={this.state.notes}
+          notes={this._searchNotes(this.state.searchTerm)}
           handleClick={this._setCurrentNoteId}
         />
         <EditorWindow
@@ -67,6 +67,17 @@ class NotesApp extends Component {
     });
     return theOne || { content: "" };
     //if theOne, return theOne, else return an object with empty content
+  };
+
+  _searchNotes = term => {
+    //filter out any notes that do not include the term in either the title or content
+    const filteredNotes = this.state.notes.filter(note => {
+      const termIsInTitle = note.title.includes(term);
+      const termIsInContent = note.content.includes(term);
+
+      return termIsInTitle || termIsInContent;
+    });
+    return filteredNotes;
   };
 }
 
