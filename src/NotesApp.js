@@ -7,6 +7,7 @@ class NotesApp extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      searchTerm: "",
       currentNoteId: 1002,
       notes: [
         {
@@ -30,8 +31,14 @@ class NotesApp extends Component {
   render() {
     return (
       <div className="notes-app container">
-        <SearchBar />
-        <NoteList notes={this.state.notes.map(note => note.title)} />
+        <SearchBar
+          handleInput={this._getSearchTerm}
+          searchTerm={this.state.searchTerm}
+        />
+        <NoteList
+          notes={this.state.notes}
+          handleClick={this._setCurrentNoteId}
+        />
         <EditorWindow
           content={this._getById(this.state.currentNoteId).content}
         />
@@ -39,12 +46,27 @@ class NotesApp extends Component {
     );
   }
 
+  _getSearchTerm = term => {
+    console.log(term);
+    this.setState({
+      searchTerm: term
+    });
+  };
+
+  _setCurrentNoteId = noteId => {
+    console.log("yo you clicked!!!!");
+    this.setState({
+      currentNoteId: noteId
+    });
+  };
+
   _getById = idToFind => {
     //find the object in this.state.notes where id === idToFind
     const theOne = this.state.notes.find(note => {
       return note.id === idToFind;
     });
-    return theOne;
+    return theOne || { content: "" };
+    //if theOne, return theOne, else return an object with empty content
   };
 }
 

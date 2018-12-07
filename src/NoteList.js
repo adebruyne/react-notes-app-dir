@@ -9,7 +9,13 @@ function NoteList(props) {
           {props.notes.map(note => {
             return (
               <li className="list-group-item">
-                <a href="">{note}</a>
+                <a
+                  onClick={() => {
+                    props.handleClick(note.id);
+                  }}
+                >
+                  {note.title}
+                </a>
               </li>
             );
           })}
