@@ -24,6 +24,11 @@ class NotesApp extends Component {
           id: 1003,
           title: "note 3",
           content: "chicka dee dee dee dee dee dee deeeeee"
+        },
+        {
+          id: 1004,
+          title: "note 4",
+          content: "schllama llama"
         }
       ]
     };
